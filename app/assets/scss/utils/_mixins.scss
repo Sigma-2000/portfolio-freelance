@@ -1,0 +1,46 @@
+@use "../base/variables" as *;
+
+@mixin desktop {
+  @media (max-width: $breakpoint-desktop) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: $breakpoint-tablet) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: $breakpoint-mobile) {
+    @content;
+  }
+}
+
+@mixin container {
+  width: min(calc(100% - (#{$page-padding-desktop} * 2)), $container-max-width);
+
+  margin-inline: auto;
+
+  @include tablet {
+    width: calc(100% - (#{$page-padding-tablet} * 2));
+  }
+
+  @include mobile {
+    width: calc(100% - (#{$page-padding-mobile} * 2));
+  }
+}
+
+@mixin uppercase-label {
+  font-size: 0.7rem;
+  font-weight: $weight-semibold;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+}
+
+@mixin serif-title {
+  font-family: $font-serif;
+  font-weight: $weight-regular;
+  letter-spacing: -0.04em;
+}

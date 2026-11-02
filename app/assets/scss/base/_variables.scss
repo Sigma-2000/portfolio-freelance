@@ -1,0 +1,51 @@
+// COLORS
+$color-ivory: #f7f3ec;
+$color-surface: #fbf8f2;
+
+$color-black: #111111;
+$color-charcoal: #2b2b2b;
+
+$color-grey-dark: #6f6b65;
+$color-grey: #aaa59e;
+$color-grey-light: #dad6d0;
+
+$color-coral: #ff6857;
+$color-blue: #2d67ff;
+
+$color-white: #ffffff;
+
+// TYPOGRAPHY
+$font-serif: Georgia, "Times New Roman", serif;
+$font-sans: Arial, Helvetica, sans-serif;
+
+// FONT WEIGHTS
+$weight-regular: 400;
+$weight-medium: 500;
+$weight-semibold: 600;
+$weight-bold: 700;
+
+// LAYOUT
+$container-max-width: 1600px;
+
+$page-padding-desktop: 3rem;
+$page-padding-tablet: 2rem;
+$page-padding-mobile: 1.25rem;
+
+// BORDER
+$border-color: rgba($color-black, 0.16);
+$border-light: rgba($color-black, 0.08);
+
+// RADIUS
+$radius-sm: 6px;
+$radius-md: 12px;
+$radius-lg: 20px;
+$radius-pill: 999px;
+
+// TRANSITIONS
+$transition-fast: 180ms ease;
+$transition-default: 300ms ease;
+
+// BREAKPOINTS
+$breakpoint-desktop: 1200px;
+$breakpoint-tablet: 900px;
+$breakpoint-mobile: 640px;
