@@ -1,4 +1,5 @@
 @use "./base/reset";
 @use "./base/variables";
 @use "./utils/mixins";
-@use "./components/layout/heroComponent";
+@use "./components/heroComponent";
+@use "./ui/animated-logo";
