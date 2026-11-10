@@ -24,7 +24,7 @@ $weight-regular: 400;
 $weight-medium: 500;
 $weight-semibold: 600;
 $weight-bold: 700;
-
+// a effacé ?
 // LAYOUT
 $container-max-width: 1600px;
 
@@ -47,6 +47,6 @@ $transition-fast: 180ms ease;
 $transition-default: 300ms ease;
 
 // BREAKPOINTS
-$breakpoint-desktop: 1200px;
-$breakpoint-tablet: 900px;
-$breakpoint-mobile: 640px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
+$breakpoint-large-desktop: 1440px;

@@ -1,0 +1,20 @@
+@use "../utils/mixins" as *;
+
+// Variable CSS commune à toutes les sections.
+// On change sa valeur selon la largeur de l'écran.
+
+:root {
+  --page-padding: 20px;
+
+  @include respond-to("tablet") {
+    --page-padding: 24px;
+  }
+
+  @include respond-to("desktop") {
+    --page-padding: 32px;
+  }
+
+  @include respond-to("large-desktop") {
+    --page-padding: 40px;
+  }
+}

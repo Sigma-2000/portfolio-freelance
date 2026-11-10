@@ -1,5 +1,8 @@
 @use "./base/reset";
 @use "./base/variables";
 @use "./utils/mixins";
+@use "./base/layout";
 @use "./components/heroComponent";
+@use "./layout/header.scss";
 @use "./ui/animated-logo";
+@use "./ui/morph-logo";

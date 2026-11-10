@@ -1,0 +1,33 @@
+.morph-logo {
+  position: relative;
+  display: block;
+  width: min(100%, 350px);
+  aspect-ratio: 4 / 1;
+  cursor: pointer;
+
+  &__base,
+  &__target {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  // Les formes cibles servent uniquement au calcul.
+  &__target {
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 5px;
+  }
+}

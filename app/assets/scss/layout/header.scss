@@ -1,0 +1,169 @@
+@use "../base/variables" as *;
+@use "../utils/mixins" as *;
+
+.site-header {
+  position: relative;
+  //z-index:11;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  padding: 6px var(--page-padding);
+  background: $color-ivory;
+
+  // MOBILE : logo assez petit pour laisser la place au menu
+  .morph-logo {
+    width: 155px;
+    max-width: 100%;
+    flex-shrink: 0;
+  }
+
+  &__toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+
+    padding: 8px 0;
+    border: 0;
+    background: transparent;
+
+    font-family: $font-sans;
+    font-size: 0.875rem;
+    font-weight: $weight-semibold;
+    color: $color-black;
+    cursor: pointer;
+  }
+
+  // Menu mobile et tablette
+  &__nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 20;
+
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+
+    padding: 24px var(--page-padding);
+    background: $color-ivory;
+
+    &.is-open {
+      display: flex;
+    }
+  }
+
+  &__link {
+    position: relative;
+    width: fit-content;
+
+    font-family: $font-sans;
+    font-size: 0.875rem;
+    font-weight: $weight-semibold;
+    letter-spacing: 0.01em;
+
+    color: $color-black;
+    text-decoration: none;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 100%;
+      bottom: -5px;
+
+      height: 2px;
+      background: $color-coral;
+      transition: right $transition-default;
+    }
+
+    &:hover::after,
+    &:focus-visible::after {
+      right: 0;
+    }
+  }
+
+  &__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    flex-shrink: 0;
+
+    padding: 11px 18px;
+    border-radius: $radius-pill;
+
+    background: $color-black;
+    color: $color-white;
+
+    font-family: $font-sans;
+    font-size: 0.875rem;
+    font-weight: $weight-semibold;
+    text-decoration: none;
+
+    transition: background $transition-default;
+
+    &:hover {
+      background: $color-coral;
+    }
+  }
+
+  // TABLETTE
+  @include respond-to("tablet") {
+    padding-top: 8px;
+    padding-bottom: 8px;
+
+    .morph-logo {
+      width: 210px;
+    }
+  }
+
+  // DESKTOP : navigation horizontale
+  @include respond-to("desktop") {
+    padding-top: 8px;
+    padding-bottom: 8px;
+
+    .morph-logo {
+      width: 235px;
+    }
+
+    &__toggle {
+      display: none;
+    }
+
+    &__nav {
+      display: flex;
+      position: static;
+
+      flex-direction: row;
+      align-items: center;
+      gap: 20px;
+
+      padding: 0;
+      background: transparent;
+    }
+  }
+
+  // GRAND DESKTOP
+  @include respond-to("large-desktop") {
+    .morph-logo {
+      width: 260px;
+    }
+
+    &__nav {
+      gap: 28px;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-header__link::after,
+  .site-header__cta {
+    transition: none;
+  }
+}
