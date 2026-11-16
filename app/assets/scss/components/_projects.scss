@@ -1,0 +1,348 @@
+@use "../base/variables" as *;
+@use "../utils/mixins" as *;
+
+// ========================================
+// SECTION RÉALISATIONS
+// ========================================
+
+.projects-section {
+  padding: 20px var(--page-padding) 80px;
+  background: $color-ivory;
+
+  // Introduction de la section
+  &__heading {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    margin-bottom: 32px;
+  }
+
+  &__eyebrow {
+    margin: 0 0 16px;
+
+    font-family: $font-sans;
+    font-size: 0.75rem;
+    font-weight: $weight-semibold;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+
+    color: $color-charcoal;
+  }
+
+  &__title {
+    margin: 0;
+
+    font-family: $font-serif;
+    font-size: 2.5rem;
+    font-weight: $weight-regular;
+    line-height: 1;
+    letter-spacing: -0.04em;
+
+    color: $color-black;
+
+    em {
+      color: $color-coral;
+      font-weight: $weight-regular;
+    }
+  }
+
+  &__intro {
+    max-width: 350px;
+    margin: 0;
+
+    font-family: $font-sans;
+    font-size: 0.95rem;
+    line-height: 1.6;
+
+    color: $color-grey-dark;
+  }
+
+  // Mobile : projets l'un sous l'autre
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  // TABLETTE
+  @include respond-to("tablet") {
+    padding-top: 24px;
+    padding-bottom: 96px;
+
+    &__title {
+      font-size: 3.5rem;
+    }
+  }
+
+  // DESKTOP
+  @include respond-to("desktop") {
+    padding-top: 34px;
+    padding-bottom: 112px;
+
+    &__heading {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: end;
+      gap: 40px;
+
+      margin-bottom: 40px;
+    }
+
+    &__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+  }
+
+  // GRAND DESKTOP
+  @include respond-to("large-desktop") {
+    padding-top: 72px;
+
+    &__title {
+      font-size: 4rem;
+      max-width: 850px;
+    }
+
+    &__intro {
+      max-width: 320px;
+    }
+
+    &__grid {
+      gap: 32px;
+    }
+  }
+}
+
+// ========================================
+// CARTES PROJETS
+// ========================================
+
+.project-card {
+  min-width: 0;
+
+  // Image du projet
+  &__visual {
+    position: relative;
+    overflow: hidden;
+
+    aspect-ratio: 4 / 3;
+    border-radius: 12px;
+
+    padding: 24px;
+
+    background: $color-grey-light;
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+    border-radius: 8px;
+    transition: transform 600ms ease;
+  }
+
+  // Numéro dans l'angle
+  &__index {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+
+    display: grid;
+    place-items: center;
+
+    width: 42px;
+    height: 42px;
+
+    border-radius: 50%;
+    background: $color-ivory;
+    color: $color-black;
+
+    font-family: $font-sans;
+    font-size: 0.75rem;
+    font-weight: $weight-semibold;
+  }
+
+  // Contenu sous l'image
+  &__content {
+    padding-top: 20px;
+  }
+
+  &__category {
+    margin: 0 0 12px;
+
+    font-family: $font-sans;
+    font-size: 0.7rem;
+    font-weight: $weight-semibold;
+    letter-spacing: 0.1em;
+
+    color: $color-grey-dark;
+  }
+
+  &__title {
+    margin: 0 0 10px;
+
+    font-family: $font-serif;
+    font-size: 2rem;
+    font-weight: $weight-regular;
+
+    color: $color-black;
+  }
+
+  &__description {
+    max-width: 480px;
+    margin: 0;
+
+    font-family: $font-sans;
+    font-size: 0.95rem;
+    line-height: 1.6;
+
+    color: $color-grey-dark;
+  }
+
+  // Bas de carte : tags + lien
+  &__footer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    // Ligne de séparation
+    border-top: 1px solid $color-grey-light;
+
+    // Espace entre la description et la ligne
+    margin-top: 4px;
+
+    // Espace entre la ligne et les tags
+    padding-top: 16px;
+
+    @include respond-to("desktop") {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+  }
+
+  // Petites étiquettes
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+
+    li {
+      padding: 7px 12px;
+
+      border: 1px solid $color-grey-light;
+      border-radius: $radius-pill;
+
+      font-family: $font-sans;
+      font-size: 0.75rem;
+
+      color: $color-charcoal;
+    }
+  }
+
+  // Lien vers la page détaillée
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+
+    flex-shrink: 0;
+    margin-top: 0;
+
+    font-family: $font-sans;
+    font-size: 0.875rem;
+    font-weight: $weight-semibold;
+
+    color: $color-black;
+    text-decoration: none;
+
+    &:hover,
+    &:focus-visible {
+      color: $color-coral;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $color-coral;
+      outline-offset: 5px;
+    }
+
+    // Flèche colorée également au clavier
+    &:focus-visible .project-card__arrow {
+      background: $color-coral;
+    }
+  }
+
+  // Petit cercle noir avec une flèche
+  &__arrow {
+    display: grid;
+    place-items: center;
+
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: $color-black;
+    color: $color-white;
+
+    font-size: 1.125rem;
+
+    transition:
+      transform $transition-default,
+      background $transition-default;
+  }
+
+  // Identité visuelle Sigma.2000
+  &--sigma {
+    .project-card__visual {
+      background: #e5ddd4;
+    }
+  }
+
+  // Identité visuelle Vizcab
+  &--vizcab {
+    .project-card__visual {
+      background: #dce6e5;
+    }
+  }
+
+  // Animations uniquement sur les appareils avec survol
+  @media (hover: hover) {
+    &:hover .project-card__image {
+      transform: scale(1.035);
+    }
+
+    .project-card__link:hover .project-card__arrow {
+      transform: rotate(45deg);
+      background: $color-coral;
+    }
+  }
+
+  // DESKTOP
+  @include respond-to("desktop") {
+    &__title {
+      font-size: 2.4rem;
+    }
+  }
+}
+
+// ========================================
+// ACCESSIBILITÉ
+// ========================================
+
+@media (prefers-reduced-motion: reduce) {
+  .project-card__image,
+  .project-card__arrow {
+    transition: none;
+  }
+}

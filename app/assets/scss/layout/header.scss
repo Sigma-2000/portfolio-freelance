@@ -3,7 +3,6 @@
 
 .site-header {
   position: relative;
-  //z-index:11;
 
   display: flex;
   align-items: center;
@@ -13,104 +12,191 @@
   padding: 6px var(--page-padding);
   background: $color-ivory;
 
-  // MOBILE : logo assez petit pour laisser la place au menu
+  // Le menu ouvert doit passer devant le Hero.
+  // Pas de z-index permanent : on préserve le halo du cercle.
+  &.is-menu-open {
+    z-index: 30;
+  }
+
   .morph-logo {
     width: 155px;
     max-width: 100%;
     flex-shrink: 0;
   }
 
+  // Bouton Menu / Fermer
   &__toggle {
     display: flex;
     align-items: center;
     gap: 8px;
     flex-shrink: 0;
 
-    padding: 8px 0;
-    border: 0;
+    padding: 9px 14px;
+    border: 1px solid $color-black;
+    border-radius: $radius-pill;
+
     background: transparent;
+    color: $color-black;
 
     font-family: $font-sans;
     font-size: 0.875rem;
     font-weight: $weight-semibold;
-    color: $color-black;
     cursor: pointer;
+    position: relative;
+    overflow: hidden;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -65%;
+
+      width: 35%;
+      height: 200%;
+
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.35),
+        transparent
+      );
+
+      transform: rotate(25deg);
+      transition: left 0.65s ease;
+      pointer-events: none;
+    }
+
+    @media (hover: hover) {
+      &[aria-expanded="true"]:hover::after {
+        left: 125%;
+      }
+    }
+    &[aria-expanded="true"] {
+      background: $color-black;
+      color: $color-white;
+    }
   }
 
-  // Menu mobile et tablette
+  // Panneau mobile et tablette
   &__nav {
     display: none;
     position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
+    top: calc(100% + 2px);
+    left: var(--page-padding);
+    right: var(--page-padding);
     z-index: 20;
 
     flex-direction: column;
     align-items: stretch;
-    gap: 20px;
+    gap: 0;
 
-    padding: 24px var(--page-padding);
-    background: $color-ivory;
+    //padding: 20px;
+    padding: 16px;
+    border-radius: 16px;
+
+    // Version C : ivoire légèrement plus foncé
+    background: #eae4db;
+
+    box-shadow: 0 14px 35px rgba(17, 17, 17, 0.1);
 
     &.is-open {
       display: flex;
     }
   }
 
+  // Liens du panneau
   &__link {
     position: relative;
-    width: fit-content;
+    display: flex;
+    align-items: center;
+    gap: 16px;
 
-    font-family: $font-sans;
-    font-size: 0.875rem;
-    font-weight: $weight-semibold;
-    letter-spacing: 0.01em;
+    width: 100%;
+    padding: 18px 0;
+
+    border-bottom: 1px solid #c9c0b5;
+
+    font-family: $font-serif;
+    font-size: 1rem;
+    font-weight: $weight-regular;
+    letter-spacing: -0.02em;
 
     color: $color-black;
     text-decoration: none;
 
+    transition: color $transition-default;
+
+    // Ligne corail au survol
     &::after {
       content: "";
       position: absolute;
       left: 0;
-      right: 100%;
-      bottom: -5px;
+      bottom: -1px;
 
+      width: 0;
       height: 2px;
       background: $color-coral;
-      transition: right $transition-default;
+
+      transition: width $transition-default;
     }
 
     &:hover::after,
     &:focus-visible::after {
-      right: 0;
+      width: 100%;
+    }
+
+    &:hover,
+    &:focus-visible {
+      color: $color-coral;
     }
   }
 
+  // Numérotation visible uniquement dans le menu déroulant
+  &__number {
+    min-width: 24px;
+
+    font-family: $font-sans;
+    font-size: 0.75rem;
+    font-weight: $weight-semibold;
+    font-variant-numeric: tabular-nums;
+
+    color: $color-coral;
+  }
+
+  // Contact discret, séparé des trois liens
   &__cta {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
-    gap: 12px;
-    flex-shrink: 0;
+    justify-content: flex-start;
+    gap: 8px;
 
-    padding: 11px 18px;
-    border-radius: $radius-pill;
+    margin-top: 14px;
+    //padding: 14px 0;
 
-    background: $color-black;
-    color: $color-white;
+    border-radius: 0;
+    background: transparent;
+    color: $color-black;
 
     font-family: $font-sans;
-    font-size: 0.875rem;
+    //font-size: 0.9375rem;
+    font-size: 1rem;
     font-weight: $weight-semibold;
     text-decoration: none;
 
-    transition: background $transition-default;
+    transition: color $transition-default;
 
     &:hover {
-      background: $color-coral;
+      color: $color-coral;
     }
+  }
+
+  &__dot {
+    width: 8px;
+    height: 8px;
+    flex-shrink: 0;
+    margin-right: 24px;
+    border-radius: 50%;
+    background: $color-coral;
   }
 
   // TABLETTE
@@ -121,9 +207,15 @@
     .morph-logo {
       width: 210px;
     }
+
+    &__nav {
+      // Panneau plus étroit sur tablette
+      left: auto;
+      width: min(400px, 90vw);
+    }
   }
 
-  // DESKTOP : navigation horizontale
+  // DESKTOP : on retrouve ton Header initial
   @include respond-to("desktop") {
     padding-top: 8px;
     padding-bottom: 8px;
@@ -144,8 +236,60 @@
       align-items: center;
       gap: 20px;
 
+      width: auto;
       padding: 0;
+      border-radius: 0;
+
       background: transparent;
+      box-shadow: none;
+    }
+
+    &__link {
+      display: inline-flex;
+      width: fit-content;
+      padding: 0;
+
+      border: 0;
+
+      font-family: $font-sans;
+      font-size: 0.875rem;
+      font-weight: $weight-semibold;
+      letter-spacing: 0.01em;
+
+      color: $color-black;
+
+      &::after {
+        bottom: -5px;
+      }
+    }
+
+    &__number {
+      display: none;
+    }
+
+    // Bouton Discutons noir, inchangé sur desktop
+    &__cta {
+      justify-content: center;
+      gap: 12px;
+      flex-shrink: 0;
+
+      margin-top: 0;
+      padding: 11px 18px;
+      border-radius: $radius-pill;
+
+      background: $color-black;
+      color: $color-white;
+
+      font-size: 0.875rem;
+
+      &:hover {
+        background: $color-coral;
+        color: $color-white;
+      }
+    }
+
+    &__dot {
+      display: none;
     }
   }
 
@@ -160,10 +304,29 @@
     }
   }
 }
+// Très petits écrans uniquement
+@media (max-width: 280px) {
+  .site-header {
+    gap: 6px;
+
+    .morph-logo {
+      width: 110px;
+    }
+    //peut aussi jouer sur typo du nav surtout discutons ?
+    &__toggle {
+      padding: 7px 9px;
+      font-size: 0.75rem;
+    }
+  }
+}
 
 @media (prefers-reduced-motion: reduce) {
+  .site-header__link,
   .site-header__link::after,
   .site-header__cta {
+    transition: none;
+  }
+  .site-header__toggle::after {
     transition: none;
   }
 }

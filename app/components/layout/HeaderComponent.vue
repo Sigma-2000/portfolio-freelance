@@ -14,8 +14,9 @@ function closeMenu() {
   isMenuOpen.value = false;
 }
 </script>
+
 <template>
-  <header class="site-header">
+  <header class="site-header" :class="{ 'is-menu-open': isMenuOpen }">
     <MorphLogo />
 
     <button
@@ -23,7 +24,7 @@ function closeMenu() {
       type="button"
       :aria-expanded="isMenuOpen"
       aria-controls="site-navigation"
-      aria-label="Afficher ou masquer le menu"
+      :aria-label="isMenuOpen ? 'Fermer le menu' : 'Ouvrir le menu'"
       @click="isMenuOpen = !isMenuOpen"
     >
       <span>{{ isMenuOpen ? "Fermer" : "Menu" }}</span>
@@ -37,17 +38,22 @@ function closeMenu() {
       aria-label="Navigation principale"
     >
       <NuxtLink
-        v-for="link in links"
+        v-for="(link, index) in links"
         :key="link.to"
         :to="link.to"
         class="site-header__link"
         @click="closeMenu"
       >
-        {{ link.label }}
+        <span class="site-header__number" aria-hidden="true">
+          {{ String(index + 1).padStart(2, "0") }}
+        </span>
+
+        <span>{{ link.label }}</span>
       </NuxtLink>
 
       <NuxtLink to="/#contact" class="site-header__cta" @click="closeMenu">
-        Discutons
+        <span class="site-header__dot" aria-hidden="true"></span>
+        <span>Discutons</span>
         <span aria-hidden="true">↗</span>
       </NuxtLink>
     </nav>
