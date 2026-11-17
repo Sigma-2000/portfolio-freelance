@@ -2,12 +2,13 @@
 import HeaderComponent from "../components/layout/HeaderComponent.vue";
 import FooterComponent from "../components/layout/FooterComponent.vue";
 </script>
+
 <template>
-  <div>
+  <div class="app-layout">
     <HeaderComponent />
 
-    <main>
-      <slot></slot>
+    <main id="main-content">
+      <slot />
     </main>
 
     <FooterComponent />

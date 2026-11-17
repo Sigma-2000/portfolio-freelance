@@ -2,6 +2,8 @@
 import HeroComponent from "../components/home/HeroComponent.vue";
 import ProjectsSection from "~/components/home/ProjectsSection.vue";
 import OffersSection from "~/components/home/OffersSection.vue";
+import ContactSection from "~/components/home/ContactSection.vue";
+import AboutSection from "~/components/home/AboutSection.vue";
 useSeoMeta({
   title: "Amélie Guyot — Développeuse web freelance",
   description:
@@ -10,9 +12,11 @@ useSeoMeta({
 </script>
 
 <template>
-  <main>
+  <div class="home-page">
     <HeroComponent />
     <ProjectsSection />
     <OffersSection />
-  </main>
+    <AboutSection />
+    <ContactSection />
+  </div>
 </template>

@@ -8,6 +8,7 @@ const links = [
   { label: "Réalisations", to: "/#realisations" },
   { label: "Offres", to: "/#offres" },
   { label: "À propos", to: "/#a-propos" },
+  { label: "Contact", to: "/#contact" },
 ];
 
 function closeMenu() {

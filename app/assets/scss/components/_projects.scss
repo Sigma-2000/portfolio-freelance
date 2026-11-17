@@ -6,7 +6,9 @@
 // ========================================
 
 .projects-section {
-  padding: 20px var(--page-padding) 80px;
+  // Espacement vertical commun entre les trois sections.
+  // Mobile : Hero (32px) + Projets (48px) = 80px.
+  padding: 48px var(--page-padding) 40px;
   background: $color-ivory;
 
   // Introduction de la section
@@ -67,18 +69,24 @@
 
   // TABLETTE
   @include respond-to("tablet") {
-    padding-top: 24px;
-    padding-bottom: 96px;
+    // Hero (40px) + Projets (56px) = 96px.
+    padding-top: 56px;
+    padding-bottom: 48px;
 
     &__title {
-      font-size: 3.5rem;
+      font-size: 3rem;
     }
   }
 
   // DESKTOP
   @include respond-to("desktop") {
-    padding-top: 34px;
-    padding-bottom: 112px;
+    // Hero (20px) + Projets (92px) = 112px.
+    padding-top: 92px;
+    padding-bottom: 56px;
+
+    &__title {
+      font-size: 3.5rem;
+    }
 
     &__heading {
       flex-direction: row;
@@ -97,10 +105,10 @@
 
   // GRAND DESKTOP
   @include respond-to("large-desktop") {
-    padding-top: 72px;
+    // Hero (24px) + Projets (88px) = 112px.
+    padding-top: 88px;
 
     &__title {
-      font-size: 3.5rem;
       max-width: 850px;
     }
 

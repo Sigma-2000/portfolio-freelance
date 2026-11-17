@@ -1,0 +1,189 @@
+@use "../base/variables" as *;
+@use "../utils/mixins" as *;
+
+// SECTION CONTACT — après les offres dans la homepage.
+.contact-section {
+  background: $color-black;
+  color: $color-white;
+  border-radius: 28px 28px 0 0;
+
+  &__inner {
+    padding: 48px var(--page-padding) 56px;
+  }
+
+  &__eyebrow-row {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  &__eyebrow,
+  &__availability {
+    margin: 0;
+    font-family: $font-sans;
+    font-size: 0.75rem;
+    font-weight: $weight-regular;
+    line-height: 1.4;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  &__eyebrow {
+    color: $color-grey-light;
+  }
+
+  &__availability {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: $color-coral;
+  }
+
+  &__availability-dot {
+    width: 7px;
+    height: 7px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: $color-coral;
+  }
+
+  &__title {
+    max-width: 850px;
+    margin: 0;
+    font-family: $font-serif;
+    font-size: 2.2rem;
+    font-weight: $weight-regular;
+    letter-spacing: -0.04em;
+    line-height: 1.05;
+    em {
+      font-style: italic;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    margin-top: 28px;
+  }
+
+  &__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    min-height: 54px;
+    padding: 16px 24px;
+    border-radius: $radius-pill;
+    background: $color-coral;
+    color: $color-black;
+    font-family: $font-sans;
+    font-size: 0.95rem;
+    font-weight: $weight-semibold;
+    text-decoration: none;
+    transition:
+      background $transition-fast,
+      transform $transition-fast;
+
+    span {
+      font-size: 1.25rem;
+      line-height: 1;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $color-white;
+      outline-offset: 4px;
+    }
+  }
+  &__email-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  &__email-label {
+    font-family: $font-sans;
+    font-size: 0.75rem;
+    line-height: 1.4;
+    color: $color-grey-light;
+  }
+
+  &__email {
+    font-family: $font-sans;
+    font-size: 0.875rem;
+    font-weight: $weight-medium;
+    line-height: 1.5;
+    color: $color-white;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  @include respond-to("tablet") {
+    &__inner {
+      padding-top: 56px;
+      padding-bottom: 64px;
+    }
+
+    &__eyebrow-row {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    &__title {
+      font-size: 3rem;
+    }
+
+    &__actions {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+
+  @include respond-to("desktop") {
+    border-radius: 36px 36px 0 0;
+
+    &__inner {
+      padding-top: 64px;
+      padding-bottom: 72px;
+    }
+
+    &__title {
+      font-size: 3.5rem;
+    }
+  }
+
+  @include respond-to("large-desktop") {
+    &__inner {
+      padding-top: 72px;
+      padding-bottom: 80px;
+    }
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    &__button:hover {
+      transform: translateY(-3px);
+      background: #ff8172;
+    }
+
+    &__email:hover {
+      color: $color-coral;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-section__button,
+  .contact-section__email {
+    transition: none;
+  }
+
+  .contact-section__button:hover {
+    transform: none;
+  }
+}

@@ -10,16 +10,14 @@
       </h1>
 
       <p class="home-hero__intro">
-        Je conçois des sites vitrines, boutiques e-commerce et expériences
-        digitales sur mesure pour les indépendants, créateurs, commerces et
-        structures qui veulent une présence en ligne claire, singulière et
-        efficace.
+        Je conçois et développe des sites vitrines, boutiques e-commerce et
+        expériences digitales sur mesure pour les indépendants, créateurs et
+        entreprises qui veulent se démarquer.
       </p>
 
       <p class="home-hero__text">
-        De la première réflexion à la mise en ligne, je vous accompagne pour
-        transformer vos besoins en un site capable de valoriser votre activité
-        et soutenir son développement.
+        De la réflexion à la mise en ligne, je vous accompagne pour créer un
+        site à votre image, clair, singulier et efficace.
       </p>
 
       <div class="home-hero__actions">

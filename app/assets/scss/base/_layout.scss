@@ -1,4 +1,5 @@
 @use "../utils/mixins" as *;
+@use "./variables" as *;
 
 // Variable CSS commune à toutes les sections.
 // On change sa valeur selon la largeur de l'écran.
@@ -16,5 +17,9 @@
 
   @include respond-to("large-desktop") {
     --page-padding: 40px;
+  }
+  .app-layout {
+    min-height: 100vh;
+    background: $color-ivory;
   }
 }

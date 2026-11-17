@@ -95,7 +95,7 @@
   }
 
   @include respond-to("desktop") {
-    font-size: 3.55rem;
+    font-size: 3.6rem;
     line-height: 0.98;
   }
   @include respond-to("large-desktop") {
@@ -272,15 +272,10 @@
   @include respond-to("large-desktop") {
     width: min(39vw, 100%);
     max-width: 620px;
-    &__title {
-      font-size: 4rem;
-      max-width: 14ch;
-    }
   }
 }
 
 // ORDINATEURS AVEC UNE FENÊTRE PEU HAUTE
-//TODO TABLETTE
 @media (min-width: 1024px) and (max-height: 760px) {
   .home-hero {
     padding-top: 6px;
@@ -288,7 +283,7 @@
   }
 
   .home-hero__title {
-    font-size: 4rem;
+    font-size: 3.2rem;
   }
 
   .home-hero__intro {

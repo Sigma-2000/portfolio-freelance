@@ -1,0 +1,291 @@
+@use "../base/variables" as *;
+@use "../utils/mixins" as *;
+
+// ========================================
+// SECTION À PROPOS
+// ========================================
+
+.about-section {
+  background: $color-ivory;
+
+  &__inner {
+    padding: 56px var(--page-padding) 80px;
+  }
+
+  // EN-TÊTE
+
+  &__heading {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+    margin-bottom: 32px;
+  }
+
+  &__eyebrow {
+    margin: 0;
+
+    font-family: $font-sans;
+    font-size: 0.75rem;
+    font-weight: $weight-semibold;
+    line-height: 1.4;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+
+    color: $color-charcoal;
+  }
+
+  &__title {
+    max-width: 850px;
+    margin: 0;
+
+    font-family: $font-serif;
+    font-size: 2.2rem;
+    font-weight: $weight-regular;
+    line-height: 1;
+    letter-spacing: -0.04em;
+
+    color: $color-black;
+
+    em {
+      color: $color-coral;
+      font-style: italic;
+      font-weight: $weight-regular;
+    }
+  }
+
+  &__intro {
+    max-width: 720px;
+    margin: 0;
+
+    font-family: $font-sans;
+    font-size: 1rem;
+    line-height: 1.65;
+
+    color: $color-grey-dark;
+  }
+
+  // TROIS DOMAINES D'INTERVENTION
+
+  &__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  // PARCOURS PERSONNEL
+  &__story {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+
+    margin-top: 40px;
+    padding-top: 32px;
+
+    border-top: 1px solid rgba(17, 17, 17, 0.12);
+  }
+
+  &__story-heading,
+  &__story-content {
+    min-width: 0;
+  }
+
+  &__story-eyebrow {
+    margin: 0 0 16px;
+
+    font-family: $font-sans;
+    font-size: 0.75rem;
+    font-weight: $weight-semibold;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: $color-coral;
+  }
+
+  &__story-title {
+    max-width: 500px;
+    margin: 0;
+
+    font-family: $font-serif;
+    font-size: 1.75rem;
+    font-weight: $weight-regular;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: $color-black;
+
+    em {
+      font-style: italic;
+    }
+  }
+
+  &__story-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  &__story-text {
+    max-width: 620px;
+    margin: 0;
+
+    font-family: $font-sans;
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: $color-grey-dark;
+  }
+  &__story-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+
+    font-family: $font-sans;
+    font-size: 0.875rem;
+    font-weight: $weight-semibold;
+    text-decoration: none;
+    color: $color-black;
+
+    transition: color $transition-fast;
+
+    span {
+      font-size: 1.125rem;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $color-coral;
+      outline-offset: 4px;
+    }
+  }
+
+  // TABLETTE — 768px
+
+  @include respond-to("tablet") {
+    &__inner {
+      padding-top: 72px;
+      padding-bottom: 96px;
+    }
+
+    &__title {
+      font-size: 3rem;
+    }
+
+    &__story {
+      margin-top: 40px;
+    }
+  }
+
+  // DESKTOP — 1024px
+
+  @include respond-to("desktop") {
+    &__inner {
+      padding-top: 88px;
+      padding-bottom: 112px;
+    }
+
+    &__heading {
+      grid-template-columns:
+        minmax(0, 1.5fr)
+        minmax(0, 0.85fr);
+
+      grid-template-areas:
+        "eyebrow eyebrow"
+        "title intro";
+
+      column-gap: 40px;
+      row-gap: 20px;
+
+      align-items: end;
+      margin-bottom: 40px;
+    }
+
+    &__eyebrow {
+      grid-area: eyebrow;
+    }
+
+    &__title {
+      grid-area: title;
+      font-size: 3.5rem;
+    }
+
+    &__intro {
+      grid-area: intro;
+      align-self: end;
+    }
+
+    &__grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+    }
+    &__story {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 40px;
+
+      margin-top: 48px;
+      padding-top: 40px;
+    }
+
+    &__story-title {
+      font-size: 2.25rem;
+    }
+  }
+
+  // GRAND DESKTOP — 1440px
+  // Le titre reste à 3.5rem, comme les autres sections.
+
+  @include respond-to("large-desktop") {
+    &__heading {
+      column-gap: 48px;
+    }
+  }
+
+  // INTERACTIONS
+
+  @media (hover: hover) and (pointer: fine) {
+    &__story-link:hover {
+      color: $color-coral;
+    }
+  }
+}
+
+// ========================================
+// CARTES À PROPOS
+// ========================================
+
+.about-card {
+  min-width: 0;
+  padding: 24px;
+
+  border: 1px solid rgba(17, 17, 17, 0.08);
+  border-radius: 24px;
+
+  background: rgba(255, 255, 255, 0.28);
+
+  &__title {
+    margin: 0 0 12px;
+
+    font-family: $font-sans;
+    font-size: 1.125rem;
+    font-weight: $weight-semibold;
+    line-height: 1.3;
+
+    color: $color-black;
+  }
+
+  &__text {
+    margin: 0;
+
+    font-family: $font-sans;
+    font-size: 0.95rem;
+    line-height: 1.65;
+
+    color: $color-grey-dark;
+  }
+}
+
+// ========================================
+// ACCESSIBILITÉ
+// ========================================
+
+@media (prefers-reduced-motion: reduce) {
+  .about-section__story-link {
+    transition: none;
+  }
+}
