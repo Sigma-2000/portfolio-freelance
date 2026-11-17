@@ -82,7 +82,7 @@
 
   // Mobile : réduit pour ne pas casser la mise en page
   font-family: $font-serif;
-  font-size: 2.1rem;
+  font-size: 2.5rem;
   font-weight: $weight-regular;
 
   line-height: 1.02;
@@ -272,11 +272,15 @@
   @include respond-to("large-desktop") {
     width: min(39vw, 100%);
     max-width: 620px;
+    &__title {
+      font-size: 4rem;
+      max-width: 14ch;
+    }
   }
 }
 
 // ORDINATEURS AVEC UNE FENÊTRE PEU HAUTE
-// Ajustement supplémentaire sans toucher aux mobiles.
+//TODO TABLETTE
 @media (min-width: 1024px) and (max-height: 760px) {
   .home-hero {
     padding-top: 6px;
@@ -284,7 +288,7 @@
   }
 
   .home-hero__title {
-    font-size: 3.2rem;
+    font-size: 4rem;
   }
 
   .home-hero__intro {
