@@ -23,7 +23,7 @@
   &__identity {
     min-width: 0;
   }
-
+  /*
   &__name {
     margin: 0 0 8px;
     font-family: $font-sans;
@@ -31,6 +31,13 @@
     font-weight: $weight-semibold;
     line-height: 1.2;
     color: $color-white;
+  }*/
+  &__logo {
+    display: block;
+    width: 180px;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 12px;
   }
 
   &__description {
@@ -127,8 +134,8 @@
 
   @include respond-to("desktop") {
     &__inner {
-      padding-top: 32px;
-      padding-bottom: 36px;
+      padding-top: 21px;
+      padding-bottom: 26px;
     }
 
     &__name {
@@ -138,7 +145,10 @@
 
   @include respond-to("large-desktop") {
     &__inner {
-      padding-bottom: 40px;
+      padding-bottom: 28px;
+    }
+    &__logo {
+      width: 210px;
     }
   }
 

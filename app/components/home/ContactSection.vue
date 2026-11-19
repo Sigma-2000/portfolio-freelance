@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const email = "amelieguyot7@gmail.com";
-const calendarUrl = "https://cal.com/ton-compte";
+const calendarUrl = "https://cal.com/amelie-guyot-t2sbve/appel-decouverte";
 </script>
 
 <template>

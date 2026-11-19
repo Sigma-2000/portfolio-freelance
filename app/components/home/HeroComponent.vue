@@ -21,11 +21,11 @@
       </p>
 
       <div class="home-hero__actions">
-        <a href="#projets" class="button button--dark">
+        <a href="#realisations" class="button button--dark">
           Voir mes réalisations
         </a>
 
-        <a href="#services" class="button button--outline">
+        <a href="#offres" class="button button--outline">
           Découvrir mes offres
         </a>
       </div>

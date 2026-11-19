@@ -166,7 +166,8 @@
   }
 
   &__description {
-    max-width: 34ch;
+    max-width: 68ch;
+    /* max-width: 34ch;*/
     margin: 0 0 18px;
 
     font-family: $font-sans;

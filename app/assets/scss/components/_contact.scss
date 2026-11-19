@@ -149,8 +149,8 @@
     border-radius: 36px 36px 0 0;
 
     &__inner {
-      padding-top: 64px;
-      padding-bottom: 72px;
+      padding-top: 44px;
+      padding-bottom: 66px;
     }
 
     &__title {
@@ -160,8 +160,8 @@
 
   @include respond-to("large-desktop") {
     &__inner {
-      padding-top: 72px;
-      padding-bottom: 80px;
+      padding-top: 48px;
+      padding-bottom: 70px;
     }
   }
 

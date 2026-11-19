@@ -1,0 +1,415 @@
+@use "../base/variables" as *;
+@use "../utils/mixins" as *;
+
+// Pages familles d'offres : mobile-first, typo rem, espaces px,
+// marges latérales identiques au reste du portfolio.
+.offer-detail {
+  background: $color-ivory;
+  color: $color-black;
+
+  &__container {
+    width: 100%;
+    padding-inline: var(--page-padding);
+  }
+
+  &__hero {
+    padding: 32px 0 72px;
+  }
+
+  &__back {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: $font-sans;
+    font-size: 0.875rem;
+    text-decoration: none;
+    color: $color-charcoal;
+    &:hover {
+      color: $color-coral;
+    }
+    &:focus-visible {
+      outline: 2px solid $color-coral;
+      outline-offset: 5px;
+    }
+  }
+
+  &__eyebrow-row {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 48px 0 20px;
+  }
+
+  &__eyebrow,
+  &__category {
+    margin: 0;
+    font-family: $font-sans;
+    font-size: 0.75rem;
+    line-height: 1.4;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  &__eyebrow {
+    color: $color-charcoal;
+    font-weight: $weight-semibold;
+  }
+  &__category {
+    color: $color-grey-dark;
+  }
+
+  &__hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+  }
+
+  &__title {
+    max-width: 1000px;
+    margin: 0;
+    font-family: $font-serif;
+    font-size: 2.2rem;
+    font-weight: $weight-regular;
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+
+    em {
+      color: $color-coral;
+      font-weight: $weight-regular;
+    }
+  }
+
+  &__hero-aside {
+    min-width: 0;
+  }
+  &__intro {
+    margin: 0 0 18px;
+    font-family: $font-sans;
+    font-size: 1.125rem;
+    font-weight: $weight-semibold;
+    line-height: 1.5;
+  }
+
+  &__description,
+  &__copy,
+  &__note,
+  &__related-text,
+  &__contact-inner > div > p:last-child {
+    font-family: $font-sans;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: $color-grey-dark;
+  }
+
+  &__description {
+    margin: 0;
+  }
+  &__inline-link {
+    display: inline-flex;
+    gap: 16px;
+    align-items: center;
+    margin-top: 24px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid $color-black;
+    font-family: $font-sans;
+    font-size: 0.875rem;
+    font-weight: $weight-semibold;
+    color: $color-black;
+    text-decoration: none;
+  }
+
+  &__content {
+    padding-bottom: 72px;
+  }
+  &__contents {
+    padding: 24px 0 44px;
+    border-top: 1px solid rgba(17, 17, 17, 0.16);
+  }
+  &__contents-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 24px;
+    margin-top: 18px;
+  }
+  &__contents-links a {
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+    font-family: $font-sans;
+    font-size: 0.875rem;
+    text-decoration: none;
+    color: $color-black;
+    &:hover {
+      color: $color-coral;
+    }
+  }
+
+  &__service {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+    padding: 48px 0;
+    border-top: 1px solid rgba(17, 17, 17, 0.16);
+    scroll-margin-top: 100px;
+  }
+
+  &__service-heading,
+  &__service-main {
+    min-width: 0;
+  }
+  &__service-title {
+    max-width: 800px;
+    margin: 18px 0 0;
+    font-family: $font-serif;
+    font-size: 2.2rem;
+    font-weight: $weight-regular;
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+  }
+
+  &__hook {
+    margin: 0 0 24px;
+    font-family: $font-sans;
+    font-size: 1.125rem;
+    font-weight: $weight-semibold;
+    line-height: 1.5;
+  }
+
+  &__copy p {
+    margin: 0;
+  }
+  &__copy p + p {
+    margin-top: 18px;
+  }
+  &__deliverables {
+    margin-top: 28px;
+  }
+  &__deliverables ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 16px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+  &__deliverables li {
+    padding: 8px 12px;
+    border: 1px solid rgba(17, 17, 17, 0.16);
+    border-radius: $radius-pill;
+    font-family: $font-sans;
+    font-size: 0.75rem;
+    color: $color-charcoal;
+  }
+  &__note {
+    margin: 28px 0 0;
+    padding-left: 16px;
+    border-left: 2px solid $color-coral;
+    font-size: 0.875rem;
+  }
+  &__service-index {
+    display: none;
+  }
+
+  &__related {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 28px;
+    border-radius: 20px;
+    background: #e9e4dc;
+  }
+  &--evolutions &__related {
+    background: #e8efed;
+  }
+  &__related-title {
+    margin: 12px 0;
+    font-family: $font-serif;
+    font-size: 2.2rem;
+    font-weight: $weight-regular;
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+  }
+  &__related-text {
+    max-width: 550px;
+    margin: 0;
+  }
+
+  &__related-link,
+  &__contact-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 14px 20px;
+    border-radius: $radius-pill;
+    background: $color-black;
+    color: $color-white;
+    font-family: $font-sans;
+    font-size: 0.875rem;
+    font-weight: $weight-semibold;
+    text-decoration: none;
+    transition:
+      background $transition-fast,
+      transform $transition-fast;
+    &:focus-visible {
+      outline: 2px solid $color-coral;
+      outline-offset: 4px;
+    }
+  }
+
+  &__contact {
+    margin-top: 72px;
+    padding: 72px 0;
+    background: #eee9e2;
+  }
+  &__contact-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    align-items: flex-start;
+  }
+  &__contact-title {
+    margin: 18px 0;
+    font-family: $font-serif;
+    font-size: 2.2rem;
+    font-weight: $weight-regular;
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+    em {
+      color: $color-coral;
+    }
+  }
+  &__contact-inner > div > p:last-child {
+    max-width: 530px;
+    margin: 0;
+  }
+  &__pagination {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    justify-content: space-between;
+    padding-top: 40px;
+    padding-bottom: 88px;
+  }
+  &__other-families {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 24px;
+  }
+  &__other-families a {
+    font-family: $font-sans;
+    font-size: 0.75rem;
+    text-decoration: none;
+    color: $color-charcoal;
+    &:hover {
+      color: $color-coral;
+    }
+  }
+
+  @include respond-to("tablet") {
+    &__eyebrow-row {
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    &__title,
+    &__service-title,
+    &__related-title,
+    &__contact-title {
+      font-size: 3rem;
+    }
+    &__pagination {
+      flex-direction: row;
+      align-items: flex-start;
+    }
+  }
+
+  @include respond-to("desktop") {
+    &__hero {
+      padding: 40px 0 96px;
+    }
+    &__eyebrow-row {
+      margin-top: 72px;
+      margin-bottom: 32px;
+    }
+    &__hero-grid {
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+      gap: 48px;
+    }
+    &__title,
+    &__service-title,
+    &__related-title,
+    &__contact-title {
+      font-size: 3.5rem;
+    }
+    &__content {
+      padding-bottom: 96px;
+    }
+    &__contents {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 32px;
+      padding-bottom: 56px;
+    }
+    &__contents-links {
+      margin-top: 0;
+      justify-content: flex-end;
+    }
+    &__service {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+      gap: 64px;
+      padding: 88px 0;
+    }
+    &__service-main {
+      padding-right: 24px;
+    }
+    &__service-index {
+      display: block;
+      position: absolute;
+      right: 0;
+      bottom: 64px;
+      font-family: $font-serif;
+      font-size: 4rem;
+      color: rgba(17, 17, 17, 0.1);
+      pointer-events: none;
+    }
+    &__related {
+      flex-direction: row;
+      align-items: end;
+      padding: 48px;
+    }
+    &__contact {
+      margin-top: 96px;
+      padding: 96px 0;
+    }
+    &__contact-inner {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: end;
+      gap: 48px;
+    }
+    &__pagination {
+      padding-bottom: 112px;
+    }
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    &__related-link:hover,
+    &__contact-link:hover {
+      background: $color-coral;
+      color: $color-black;
+      transform: translateY(-2px);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .offer-detail__related-link,
+  .offer-detail__contact-link {
+    transition: none;
+  }
+}

@@ -18,7 +18,12 @@ function scrollToTop() {
     <div class="site-footer__inner">
       <div class="site-footer__bottom">
         <div class="site-footer__identity">
-          <p class="site-footer__name">Amélie Guyot</p>
+          <!--<p class="site-footer__name">Amélie Guyot</p>-->
+          <img
+            src="/logos/logo-ag-white.svg"
+            alt="logo-ag-white"
+            class="site-footer__logo"
+          />
           <p class="site-footer__description">
             Développement web · Design · Expériences interactives
           </p>

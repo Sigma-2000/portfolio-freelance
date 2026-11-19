@@ -1,27 +1,33 @@
 <script setup lang="ts">
-import { projects } from "~/data/projects";
+import { computed } from "vue";
+import ProjectDetails from "~/components/projects/ProjectDetails.vue";
+import { getProjectBySlug, projects } from "~/data/projects";
 
 const route = useRoute();
-const slug = String(route.params.slug);
+const project = computed(() => getProjectBySlug(String(route.params.slug)));
 
-const project = projects[slug as keyof typeof projects];
-
-if (!project) {
-  throw createError({
-    statusCode: 404,
-    statusMessage: "Projet introuvable",
-  });
+if (!project.value) {
+  throw createError({ statusCode: 404, statusMessage: "Projet introuvable" });
 }
 
+const nextProject = computed(() =>
+  projects.find((item) => item.slug === project.value?.nextSlug),
+);
+
 useSeoMeta({
-  title: `${project.title} — Amélie Guyot`,
-  description: project.description,
+  title: () => `${project.value?.name ?? "Projet"} — Amélie Guyot`,
+  description: () =>
+    project.value?.introduction ?? "Étude de cas de développement web",
+  ogTitle: () => `${project.value?.name ?? "Projet"} — Amélie Guyot`,
+  ogDescription: () => project.value?.introduction ?? "Étude de cas",
+  ogImage: () => project.value?.cover ?? "",
 });
 </script>
 
 <template>
-  <main>
-    <h1>{{ project.title }}</h1>
-    <p>{{ project.description }}</p>
-  </main>
+  <ProjectDetails
+    v-if="project"
+    :project="project"
+    :next-project="nextProject"
+  />
 </template>

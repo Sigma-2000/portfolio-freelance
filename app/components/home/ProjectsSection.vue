@@ -98,7 +98,7 @@ const projects = [
             </ul>
 
             <NuxtLink
-              :to="`/projects/${project.slug}`"
+              :to="`/projets/${project.slug}`"
               class="project-card__link"
               :aria-label="`Découvrir le projet ${project.title}`"
             >

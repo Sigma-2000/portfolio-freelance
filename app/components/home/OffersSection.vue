@@ -2,12 +2,12 @@
 const offers = [
   {
     number: "01",
-    label: "STRATÉGIE",
-    title: "Clarifier & améliorer",
+    label: "STRATÉGIE & ACCOMPAGNEMENT",
+    title: "Clarifier, améliorer, faire durer.",
     description:
-      "Audit, conseil et améliorations pour mieux structurer votre présence en ligne.",
-    points: ["Audit", "Conseil", "Refonte ciblée"],
-    slug: "strategie-digitale",
+      "Du premier audit aux améliorations et au suivi de votre site, je vous accompagne à chaque étape.",
+    points: ["Audit", "Refonte ciblée, Maintenance"],
+    slug: "strategie",
     theme: "strategy",
     icon: "target",
   },
@@ -35,11 +35,17 @@ const offers = [
   },
   {
     number: "04",
-    label: "ÉVOLUTIONS",
+    label: "3D & DÉVELOPPEMENT SUR MESURE",
     title: "Explorer d’autres possibles",
+    /**Photogrammétrie, objets 3D interactifs et fonctionnalités spécifiques pour des expériences qui sortent du cadre. */
     description:
-      "Fonctionnalités sur mesure, maintenance, évolutions et expérimentations créatives.",
-    points: ["3D", "Maintenance", "Fonctionnalités sur mesure"],
+      "Donnez une nouvelle dimension à votre présence en ligne grâce à la 3D interactive, à la photogrammétrie et à des fonctionnalités développées sur mesure.",
+    points: [
+      "3D",
+      "Photogrammétrie",
+      "Maintenance",
+      "Fonctionnalités sur mesure",
+    ],
     slug: "accompagnement-evolutions",
     theme: "lab",
     icon: "orbit",
